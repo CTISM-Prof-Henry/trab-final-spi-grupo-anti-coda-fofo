@@ -1,47 +1,46 @@
-CREATE TABLE admin(
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+CREATE TABLE IF NOT EXISTS admin(
+    uuid UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE professor(
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+CREATE TABLE IF NOT EXISTS professor(
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
     nome VARCHAR(100) NOT NULL,
-    matricula CHAR(9) UNIQUE NOT NULL
+    matricula VARCHAR(9) UNIQUE NOT NULL
 );
 
 --tabela evento possui uma restrição check para validar o tipo de valor aceitavel para evento
 
-CREATE TABLE evento(
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+CREATE TABLE IF NOT EXISTS evento(
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(100) NOT NULL,
-    id_professor UUID NOT NULL,
-    FOREIGN KEY (id_professor) REFERENCES professor(id) ON DELETE CASCADE,
+    id_professor BIGINT NOT NULL REFERENCES 
+		professor(id) ON DELETE CASCADE,
     tipo VARCHAR(30) NOT NULL CHECK (tipo IN(
-        'disciplina', 'palestra', 'seminário', 'reunião', 'projeto'
+        'DISCIPLINA', 'PALESTRA', 'SEMINÁRIO', 'REUNIÃO', 'PROJETO'
     ))
 );
 
 --tabela sala possui uma restrição check para validar o tipo de valor aceitável para sala
-
-CREATE TABLE sala(
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    nome CHAR(5) NOT NULL,
-    predio CHAR(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS sala(
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    nome VARCHAR(5) NOT NULL,
+    predio VARCHAR(8) NOT NULL,
     capacidade int NOT NULL,
     tipo VARCHAR(30) NOT NULL CHECK (tipo IN(
-        'laboratório', 'aula', 'auditório', 'oficina', 'outro'
+        'LABORATÓRIO', 'AULA', 'AUDITÓRIO', 'OFICINA', 'MULTIUSO'
     ))
 );
 
 --tabela de agendamento possui uma restrição check para validar a hora
 -- timestam no formato 'YYYY-MM-DD HH:MI:SS'
-CREATE TABLE agendamento(
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    id_sala UUID NOT NULL REFERENCES sala(id) ON DELETE CASCADE,
-    id_evento UUID NOT NULL REFERENCES evento(id) ON DELETE CASCADE,
+CREATE TABLE IF NOT EXISTS agendamento(
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    id_sala BIGINT NOT NULL REFERENCES sala(id) ON DELETE CASCADE,
+    id_evento BIGINT NOT NULL REFERENCES evento(id) ON DELETE CASCADE,
     data_hora_inicio TIMESTAMP,
     data_hora_fim TIMESTAMP,
     CONSTRAINT check_horario CHECK (data_hora_inicio < data_hora_fim),

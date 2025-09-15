@@ -1,5 +1,5 @@
 package com.ufsm.politecnico.controller;
 
-public class ProfessorController {
+public class EventoController {
 
 }
