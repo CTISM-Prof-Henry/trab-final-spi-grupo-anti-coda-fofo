@@ -13,7 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -50,7 +50,6 @@ public class Evento {
     private Professor professor;
 
     @Enumerated(EnumType.STRING)
-    @NotBlank
     private TipoEvento tipo;
 
     // Relacionamento com Agendamento 1:N

@@ -1,6 +1,5 @@
 package com.ufsm.politecnico.service;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
@@ -9,6 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.ufsm.politecnico.model.Admin;
 import com.ufsm.politecnico.repositories.AdminRepository;
+
+/*
+ * Sobre o admin, que será unico no sistema, logo
+ * não será permitido cadastrar um novo e não haverá a
+ * opção de listar todos, por segurança e sim apenas
+ * achar o admin por email ou uuid e validar sua senha
+*/
 
 @Service
 public class AdminService {
@@ -27,23 +33,10 @@ public class AdminService {
         throw new NoSuchElementException();
     }
 
-    public Admin saveAdmin(Admin a){
-        return adminRepository.save(a);
-    }
-
-    public Admin deletAdmin(UUID uuid){
-        Optional<Admin> a = adminRepository.findById(uuid);
-        //se houver um, deletar
-        if(a.isPresent()){
-            adminRepository.deleteById(uuid);
-            return a.get();
-        }
-        //lança exceção se não achar
+    public Admin getByEmail(String email){
+        Optional<Admin> a = adminRepository.findByEmail(email);
+        if(a.isPresent()) return a.get();
         throw new NoSuchElementException();
-    }
-
-    public List<Admin> listar(){
-        return adminRepository.findAll();
     }
 
     public Admin edit(Admin a){

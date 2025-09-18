@@ -1,8 +1,8 @@
 package com.ufsm.politecnico.service;
 
-
-import com.ufsm.politecnico.model.Admin;
 import com.ufsm.politecnico.model.Sala;
+import com.ufsm.politecnico.model.TipoPredio;
+import com.ufsm.politecnico.model.TipoSala;
 import com.ufsm.politecnico.repositories.SalaRepository;
 import org.springframework.stereotype.Service;
 
@@ -52,15 +52,25 @@ public class SalaService {
         throw new NoSuchElementException();
     }
 
-    public Boolean deleteSala(Long id){
-
+    public Sala deleteSala(Long id){
         Optional<Sala> sala = salaRepository.findById(id);
         if(sala.isPresent()){
             salaRepository.delete(sala.get());
-            return true;
+            return sala.get();
         }
-
         throw new NoSuchElementException();
     }
 
+    //
+    public List<Sala> findByPredio(TipoPredio tipoPredio){
+        List<Sala> salas = salaRepository.findByPredio(tipoPredio);
+        return salas;
+    }
+
+    //
+    public List<Sala> findByTipo(TipoSala tipoSala){
+        List<Sala> salas = salaRepository.findByTipo(tipoSala);
+        return salas;
+    }
+    
 }

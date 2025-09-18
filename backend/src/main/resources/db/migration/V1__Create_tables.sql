@@ -28,7 +28,9 @@ CREATE TABLE IF NOT EXISTS evento(
 CREATE TABLE IF NOT EXISTS sala(
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(5) NOT NULL,
-    predio VARCHAR(8) NOT NULL,
+    predio VARCHAR(8) NOT NULL CHECK (predio IN(
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'OUTRO'
+    )),
     capacidade int NOT NULL,
     tipo VARCHAR(30) NOT NULL CHECK (tipo IN(
         'LABORATÓRIO', 'AULA', 'AUDITÓRIO', 'OFICINA', 'MULTIUSO'

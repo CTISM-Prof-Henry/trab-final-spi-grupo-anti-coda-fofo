@@ -1,0 +1,15 @@
+### Buscar Admin por email
+GET http://localhost:3000/api/admin/admin@admin.com
+Accept: application/json
+
+
+### Editar Admin
+PUT http://localhost:3000/api/admin
+Content-Type: application/json
+Accept: application/json
+
+{
+  "uuid": "bd73b94f-0518-467b-a4d5-57c38564cb15",
+  "email": "admin@poli.ufsm.br.com",
+  "senha": "novaSenha123"
+}
