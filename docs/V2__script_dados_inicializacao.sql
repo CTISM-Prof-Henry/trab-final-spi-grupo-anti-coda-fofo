@@ -18,3 +18,11 @@ INSERT INTO sala (nome, predio, capacidade, tipo) VALUES
 ('701', 'G', 55, 'AULA'),
 ('702', 'G', 38, 'LABORATÓRIO'),
 ('800', 'OUTRO', 120, 'AUDITÓRIO');
+
+--professores
+INSERT INTO professor (email, senha, nome, matricula) VALUES
+('Daniel@poli.ufsm.com', 'senha123', 'Daniel', '123456789'),
+('Leandro@poli.ufsm.com', 'senha456', 'Leandro', '987654321'),
+('Rafael@poli.ufsm.com', 'senha789', 'Rafael', '112233445'),
+('Marcos@poli.ufsm.com', 'senha101', 'Marcos', '556677889'),
+('Alencar@poli.ufsm.com', 'senha202', 'Alencar', '998877665');

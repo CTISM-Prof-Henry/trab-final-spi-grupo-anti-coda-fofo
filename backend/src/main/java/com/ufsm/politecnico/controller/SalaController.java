@@ -33,19 +33,19 @@ public class SalaController {
     }
 
     @GetMapping("/predio")
-    public ResponseEntity<?> predio(@RequestParam TipoPredio predio) {
+    public ResponseEntity<?> getByPredio(@RequestParam TipoPredio predio) {
         List<Sala> salas= salaService.findByPredio(predio);
         return ResponseEntity.ok().body(salas);
     }
 
     @GetMapping("/tipo")
-    public ResponseEntity<?> tipo(@RequestParam TipoSala tipo) {
+    public ResponseEntity<?> getByTipo(@RequestParam TipoSala tipo) {
         List<Sala> salas = salaService.findByTipo(tipo);
         return ResponseEntity.ok().body(salas);
     }
 
-    @GetMapping
-    public ResponseEntity<Sala> id(@RequestParam long id){
+    @GetMapping("/id")
+    public ResponseEntity<Sala> getByid(@RequestParam long id){
         Sala s = salaService.getSala(id);
         return ResponseEntity.ok().body(s);
     }

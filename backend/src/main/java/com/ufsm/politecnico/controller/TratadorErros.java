@@ -12,7 +12,7 @@ public class TratadorErros {
 
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<?> tratarErro404(NoSuchElementException e) {
-        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }

@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.ufsm.politecnico.model.Professor;
 import com.ufsm.politecnico.repositories.ProfessorRepository;
 
+@Service
 public class ProfessorService {
     //inicialização de dependencia
     private final ProfessorRepository professorRepository;
@@ -16,7 +19,7 @@ public class ProfessorService {
     }
 
     //listar todos os professores
-    public List<Professor> professores(){
+    public List<Professor> selectAll(){
         return professorRepository.findAll();
     }
 
