@@ -2,6 +2,9 @@ package com.ufsm.politecnico.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -46,12 +49,4 @@ public class Sala {
 
     @Min(1)
     private int capacidade;
-
-    //relacionamento com agendamento 1:N
-    @OneToMany(
-        mappedBy = "sala", 
-        cascade = CascadeType.ALL,
-        fetch=FetchType.LAZY
-    )
-    private List<Agendamento> agendamentos;
 }

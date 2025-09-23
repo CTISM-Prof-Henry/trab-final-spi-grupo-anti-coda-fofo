@@ -2,6 +2,9 @@ package com.ufsm.politecnico.model;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -47,13 +50,14 @@ public class Agendamento{
     private LocalDateTime dataHoraFim;
 
     //Relacionamento N:1 Salas
-    @ManyToOne(fetch = FetchType.LAZY)
+   
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_sala", nullable = false)
     private Sala sala;
 
     //Relacionamento N:1 eventos
-    @ManyToOne(fetch = FetchType.LAZY)
+    
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_evento", nullable = false)
     private Evento evento;
-
 }

@@ -51,9 +51,4 @@ public class Evento {
 
     @Enumerated(EnumType.STRING)
     private TipoEvento tipo;
-
-    // Relacionamento com Agendamento 1:N
-    @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
-    private List<Agendamento> agendamentos;
-  
 }

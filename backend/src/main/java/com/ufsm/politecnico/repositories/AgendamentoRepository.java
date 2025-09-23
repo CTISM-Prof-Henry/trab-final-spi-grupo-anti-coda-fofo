@@ -8,4 +8,5 @@ import com.ufsm.politecnico.model.Agendamento;
 @Repository
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> {
 
+    
 }

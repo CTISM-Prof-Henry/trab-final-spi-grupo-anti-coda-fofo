@@ -26,3 +26,26 @@ INSERT INTO professor (email, senha, nome, matricula) VALUES
 ('Rafael@poli.ufsm.com', 'senha789', 'Rafael', '112233445'),
 ('Marcos@poli.ufsm.com', 'senha101', 'Marcos', '556677889'),
 ('Alencar@poli.ufsm.com', 'senha202', 'Alencar', '998877665');
+
+--eventos para cada professores
+-- Inserção de eventos
+INSERT INTO evento (nome, id_professor, tipo) VALUES
+('Seminário sobre Inteligência Artificial', 1, 'SEMINÁRIO'),
+('Reunião de Coordenação', 2, 'REUNIÃO'),
+('Projeto de Pesquisa sobre Sustentabilidade', 3, 'PROJETO'),
+('Disciplina de Cálculo I', 4, 'DISCIPLINA'),
+('Palestra sobre Desenvolvimento de Software', 5, 'PALESTRA'),
+('Seminário de Engenharia de Software', 1, 'SEMINÁRIO'),
+('Reunião de Planejamento de Eventos', 2, 'REUNIÃO'),
+('Projeto de Inovação Tecnológica', 3, 'PROJETO'),
+('Disciplina de Física II', 4, 'DISCIPLINA'),
+('Palestra sobre Inteligência Emocional', 5, 'PALESTRA'),
+('Seminário sobre Blockchain', 1, 'SEMINÁRIO'),
+('Reunião de Avaliação de Cursos', 2, 'REUNIÃO'),
+('Projeto de Aplicações Móveis', 3, 'PROJETO'),
+('Disciplina de Algoritmos e Estruturas de Dados', 2, 'DISCIPLINA'),
+('Palestra sobre Transformação Digital', 5, 'PALESTRA'),
+('Seminário de Pesquisa em Computação', 1, 'SEMINÁRIO'),
+('Reunião sobre Novos Currículos', 2, 'REUNIÃO'),
+('Projeto de Engenharia de Dados', 3, 'PROJETO');
+

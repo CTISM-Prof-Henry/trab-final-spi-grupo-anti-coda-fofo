@@ -44,7 +44,6 @@ public class SalaService {
             a.get().setNome(sala.getNome());
             a.get().setCapacidade(sala.getCapacidade());
             a.get().setPredio(sala.getPredio());
-            a.get().setAgendamentos(sala.getAgendamentos()); //hmmm
             salaRepository.save(a.get());
             return a.get();
         }
