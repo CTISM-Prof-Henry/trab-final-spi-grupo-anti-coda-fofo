@@ -1,5 +1,7 @@
 package com.ufsm.politecnico.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,9 +11,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventoDTO {
-    private Long id;
+public class ProfessorDTO {
     private String nome;
-    private String tipo;
-    private String professorNome;
+    private String email;
+    private String matricula;
+    private Long id;
+    private List<EventoDTO> eventos;
 }

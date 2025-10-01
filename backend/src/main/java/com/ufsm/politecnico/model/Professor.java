@@ -53,7 +53,7 @@ public class Professor{
     @OneToMany(
         mappedBy = "professor", 
         cascade = CascadeType.ALL,
-        fetch = FetchType.LAZY
+        fetch = FetchType.EAGER
     )
     private List<Evento> eventos;
 }

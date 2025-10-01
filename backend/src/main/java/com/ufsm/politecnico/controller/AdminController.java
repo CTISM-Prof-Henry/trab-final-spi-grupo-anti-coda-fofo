@@ -2,18 +2,21 @@ package com.ufsm.politecnico.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ufsm.politecnico.model.Admin;
+import com.ufsm.politecnico.dto.AdminDTO;
 import com.ufsm.politecnico.service.AdminService;
 
 import jakarta.validation.Valid;
 
+import java.util.UUID;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 
 @RestController
@@ -27,17 +30,24 @@ public class AdminController {
         this.adminService=adminService;
     }
 
-    //buscar por email
-    @GetMapping("{email}")
-    public ResponseEntity<Admin> getByemail(@PathVariable String email) {
-        Admin a = adminService.getByEmail(email);
-        return ResponseEntity.status(HttpStatus.OK).body(a);
-    }
-
     //alterar o admin
     @PutMapping
-    public ResponseEntity<Admin> editar(@Valid @RequestBody Admin admin) {
-        Admin a = adminService.edit(admin);
-        return ResponseEntity.status(HttpStatus.OK).body(a);
+    public ResponseEntity<Boolean> editar(@RequestParam UUID uuid, @Valid @RequestBody AdminDTO admin) {
+        boolean status = adminService.edit(uuid, admin);
+        return ResponseEntity.status(HttpStatus.OK).body(status);
     }
+
+    //autenticar o admin
+    @PostMapping("/login")
+    public ResponseEntity<AdminDTO> postMethodName(
+            @RequestParam String email,
+            @RequestParam String senha){
+        
+        AdminDTO a = this.adminService.autentica(email, senha);
+
+        return (a!=null)? 
+        ResponseEntity.ok().body(a):
+        ResponseEntity.notFound().build();
+    }
+    
 }

@@ -1,13 +1,18 @@
 package com.ufsm.politecnico.service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.ufsm.politecnico.model.Evento;
 import com.ufsm.politecnico.model.Professor;
 import com.ufsm.politecnico.repositories.ProfessorRepository;
+import com.ufsm.politecnico.dto.EventoDTO;
+import com.ufsm.politecnico.dto.ProfessorDTO;
 
 @Service
 public class ProfessorService {
@@ -18,9 +23,34 @@ public class ProfessorService {
         this.professorRepository = pr;
     }
 
-    //listar todos os professores
-    public List<Professor> selectAll(){
-        return professorRepository.findAll();
+    /*listar todos os professores
+     * cada qual com seus eventosDTO associados
+     * cada evento tem apenas o nome
+    */
+    public ArrayList<ProfessorDTO> selectAll(){
+        ArrayList<ProfessorDTO> professorDTOs = new ArrayList<ProfessorDTO>();
+        List<Professor> professores = professorRepository.findAll();
+        Iterator<Professor> i = professores.iterator();
+        while(i.hasNext()){
+            Professor p = i.next();
+
+            ProfessorDTO p2 = new ProfessorDTO(
+                p.getNome(),
+                p.getEmail(),
+                p.getMatricula(),
+                p.getId(),
+                new ArrayList<EventoDTO>()
+            );
+
+            for (Evento iEvento : p.getEventos()) {
+                EventoDTO novo = new EventoDTO();
+                novo.setNome(iEvento.getNome());
+                novo.setTipo(iEvento.getTipo().name());
+                p2.getEventos().add(novo);
+            }
+            professorDTOs.add(p2);
+        }
+        return professorDTOs;
     }
 
     //obter o professor de uma matricula

@@ -9,9 +9,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventoDTO {
-    private Long id;
+public class SalaDTO {
     private String nome;
-    private String tipo;
-    private String professorNome;
+    private String tipoSala;
+    private String tipoPredio;
+    private int capacidade;
+    private Long id;
 }

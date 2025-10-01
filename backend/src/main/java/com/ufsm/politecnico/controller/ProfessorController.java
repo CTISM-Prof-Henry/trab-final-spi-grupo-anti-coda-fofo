@@ -1,12 +1,13 @@
 package com.ufsm.politecnico.controller;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ufsm.politecnico.dto.ProfessorDTO;
 import com.ufsm.politecnico.model.Professor;
 import com.ufsm.politecnico.service.ProfessorService;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,10 +23,10 @@ public class ProfessorController {
         this.professorService = professorService;
     }
 
-    //selecionar todos os professores
+    //selecionar todos os professores com seus devidos eventos
     @GetMapping
-    public ResponseEntity<List<Professor>> selectAll(){
-        List<Professor> professores = professorService.selectAll();
+    public ResponseEntity<ArrayList<ProfessorDTO>> selectAll(){
+        ArrayList<ProfessorDTO> professores = professorService.selectAll();
         return ResponseEntity.ok().body(professores);
     } 
 

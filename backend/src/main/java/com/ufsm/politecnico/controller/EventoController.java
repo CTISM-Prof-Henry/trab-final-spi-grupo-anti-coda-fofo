@@ -9,8 +9,6 @@ import com.ufsm.politecnico.dto.EventoDTO;
 import com.ufsm.politecnico.service.EventoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
 @RequestMapping("/evento")
@@ -27,5 +25,5 @@ public class EventoController {
         ArrayList<EventoDTO> eventosDTOs = this.eventoService.finDtos();
         return ResponseEntity.ok().body(eventosDTOs);
     }
-    
+        
 }
