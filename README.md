@@ -73,6 +73,7 @@ colocando o nome do host como o nome do container do banco ou seu endereço ip, 
 ___
 
 ## **UML**
+### Diagramas de casos de uso
 ![diagrama de casos de uso](/docs/CasosDeUso.drawio(1).png)
 
 ## **BACKEND**
