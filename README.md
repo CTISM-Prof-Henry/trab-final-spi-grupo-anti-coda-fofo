@@ -12,6 +12,9 @@ ___
 ### **DEPLOY**
    1. [deploy do backend](#deploy-backend)
 
+### UML
+   1. [diagrama casos de uso](#uml)
+
 ### **BACKEND**
    1. [modeloER](#modelo-er)
    2. [Funcionalidades](#funcionalidades)
@@ -68,6 +71,9 @@ colocando o nome do host como o nome do container do banco ou seu endereço ip, 
 
 ![interface gráfica do pgadmin web](/docs/adminAgendaServer.png.png)
 ___
+
+## **UML**
+![diagrama de casos de uso](/docs/CasosDeUso.drawio.png)
 
 ## **BACKEND**
 
