@@ -1,0 +1,18 @@
+site_name: PoliAgenda | Documentação oficial
+repo_url: https://github.com/CTISM-Prof-Henry/trab-final-spi-grupo-anti-coda-fofo
+
+# Define o tema para Material for MkDocs
+theme:
+  name: material
+  language: pt
+  features:
+    - navigation.sections
+    - search.suggest
+    - search.highlight
+    - content.tabs
+
+# Define a estrutura de navegação
+nav:
+  - Início: index.md
+  - Deploy: deploy.md # Adicione conforme for criando arquivos em docs/
+  - Diagramas e UML: uml.md
