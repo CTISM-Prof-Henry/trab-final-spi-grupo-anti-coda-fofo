@@ -49,3 +49,24 @@ INSERT INTO evento (nome, id_professor, tipo) VALUES
 ('Reunião sobre Novos Currículos', 2, 'REUNIÃO'),
 ('Projeto de Engenharia de Dados', 3, 'PROJETO');
 
+
+-- Agendamento 1: Seminário sobre Inteligência Artificial na sala 103 (Auditório A)
+INSERT INTO agendamento (id_sala, id_evento, data_hora_inicio, data_hora_fim)
+VALUES (3, 1, '2025-10-06 09:00:00', '2025-10-06 11:00:00');
+
+-- Agendamento 2: Reunião de Coordenação na sala 201 (Prédio B)
+INSERT INTO agendamento (id_sala, id_evento, data_hora_inicio, data_hora_fim)
+VALUES (4, 2, '2025-10-06 14:00:00', '2025-10-06 15:30:00');
+
+-- Agendamento 3: Projeto de Pesquisa sobre Sustentabilidade na sala 302 (Laboratório C)
+INSERT INTO agendamento (id_sala, id_evento, data_hora_inicio, data_hora_fim)
+VALUES (7, 3, '2025-10-07 10:00:00', '2025-10-07 12:00:00');
+
+-- Agendamento 4: Disciplina de Cálculo I na sala 101 (Aula A)
+INSERT INTO agendamento (id_sala, id_evento, data_hora_inicio, data_hora_fim)
+VALUES (1, 4, '2025-10-08 08:00:00', '2025-10-08 10:00:00');
+
+-- Agendamento 5: Palestra sobre Desenvolvimento de Software na sala 401 (Auditório D)
+INSERT INTO agendamento (id_sala, id_evento, data_hora_inicio, data_hora_fim)
+VALUES (8, 5, '2025-10-09 19:00:00', '2025-10-09 21:00:00');
+
