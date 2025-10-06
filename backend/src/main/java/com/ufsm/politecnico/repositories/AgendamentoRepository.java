@@ -34,17 +34,16 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
     @Query(QUERY_STRING_DTO)
     List<AgendamentoDTO> buscarTodosAgendamentos();
 
-     // 2. Agendamentos em Andamento ou Futuros (A partir da data/hora atual)
-    // Usamos 'a.dataHoraFim' para garantir que agendamentos que já começaram, mas não terminaram, sejam incluídos
+    //Agendamentos em Andamento ou Futuros (A partir da data/hora atual)
     @Query(QUERY_STRING_DTO + "WHERE a.dataHoraFim >= :dataHoraAtual")
     List<AgendamentoDTO> buscarAgendamentosFuturos(@Param("dataHoraAtual") LocalDateTime dataHoraAtual);
 
-    // 3. Agendamentos Passados (Que terminaram antes da data/hora atual)
+    //Agendamentos Passados (Que terminaram antes da data/hora atual)
     @Query(QUERY_STRING_DTO + "WHERE a.dataHoraFim < :dataHoraAtual")
     List<AgendamentoDTO> buscarAgendamentosPassados(@Param("dataHoraAtual") LocalDateTime dataHoraAtual);
     
-    // 4. Agendamentos em um Período Específico
-    // Filtra agendamentos onde o período de agendamento (início a fim) se sobrepõe ao período desejado
+    //Agendamentos em um Período Específico
+    //Filtra agendamentos onde o período de agendamento (início a fim) se sobrepõe ao período desejado
     @Query(QUERY_STRING_DTO + 
            "WHERE a.dataHoraInicio >= :dataInicioPeriodo AND a.dataHoraFim <= :dataFimPeriodo " +
            "ORDER BY a.dataHoraInicio")
@@ -52,4 +51,17 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
         LocalDateTime dataInicioPeriodo,
         LocalDateTime dataFimPeriodo
     );
+
+    //busca se há agendamentos nesta sala em específico, para evitar conflitos de agenda
+    @Query("SELECT COUNT(a) FROM Agendamento a WHERE a.sala.id = :salaId AND "
+        + ":inicio < a.dataHoraFim AND :fim > a.dataHoraInicio")
+    long obterConflitosAgendamento(
+        @Param("salaId") Long salaId,
+        @Param("inicio") LocalDateTime inicio,
+        @Param("fim") LocalDateTime fim
+    );
+
+    //busca um agendamentoDTO por um id especifico
+    @Query(QUERY_STRING_DTO + "WHERE a.id = :id")
+    AgendamentoDTO buscarId(@Param("id") Long idAgendamento);
 }
