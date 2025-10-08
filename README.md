@@ -1,3 +1,5 @@
+#NÃO DEIXAR O GIT ABERTO E O PC LIGADO NO LAB E IR EMBORA!!!!!
+
 # Projeto Agenda Pol
 
 > [!NOTE]
