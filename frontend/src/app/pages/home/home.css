@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-color: #004b87;
+  color: white;
+  padding: 20px 0;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.header p {
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.content {
+  margin-top: 50px;
+}
+
+.content h2 {
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #004b87;
+  color: white;
+  width: 200px;
+  height: 260px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  background-color: #0066cc;
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100px;
+  height: 95px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+}
