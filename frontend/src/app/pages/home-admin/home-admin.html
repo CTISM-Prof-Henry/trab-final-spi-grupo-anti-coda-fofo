@@ -1,0 +1,38 @@
+<div class="container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h1 class="logo">POLISALAS</h1>
+
+    <ul class="menu">
+      <li (click)="setSection('home')" [class.active]="activeSection === 'home'">🏠 Home</li>
+      <li (click)="setSection('usuarios')" [class.active]="activeSection === 'usuarios'">👤 Usuários</li>
+      <li (click)="setSection('salas')" [class.active]="activeSection === 'salas'">🚪 Salas</li>
+      <li (click)="setSection('config')" [class.active]="activeSection === 'config'">⚙️ Configurações</li>
+    </ul>
+
+    <div class="exit">Sair</div>
+  </aside>
+
+  <!-- Conteúdo -->
+  <main class="content">
+    <section *ngIf="activeSection === 'home'">
+      <h2>Bem-vindo ao Polisalas!</h2>
+      <p>Escolha uma seção no menu ao lado.</p>
+    </section>
+
+    <section *ngIf="activeSection === 'usuarios'" class="cards">
+      <div class="card">👤 Ver Usuários</div>
+      <div class="card">👤 Registrar Usuários</div>
+    </section>
+
+    <section *ngIf="activeSection === 'salas'" class="cards">
+      <div class="card">🚪 Ver Salas</div>
+      <div class="card">🚪 Registrar Salas</div>
+    </section>
+
+    <section *ngIf="activeSection === 'config'">
+      <h2>Configurações</h2>
+      <p>Opções de sistema em breve.</p>
+    </section>
+  </main>
+</div>

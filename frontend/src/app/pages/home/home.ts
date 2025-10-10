@@ -3,11 +3,11 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  standalone: false,
+  standalone: true,
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-export class Home{
+export class HomeComponent{
   constructor(private router: Router) {}
 
   navigate(path: string) {
