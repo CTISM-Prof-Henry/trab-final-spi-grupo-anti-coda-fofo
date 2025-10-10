@@ -1,0 +1,29 @@
+
+<div class="header">
+  <h1>POLISALAS</h1>
+  <p>Sistema de agendamento de salas do Colégio Politécnico</p>
+</div>
+
+<div class="content">
+  <h2>SELECIONE A SUA FUNÇÃO</h2>
+
+  <div class="cards">
+    <div class="card" (click)="navigate('alunos')">
+      <img src="assets/hugeicons_students.png" alt="Alunos">
+      <br>
+      <p>ALUNOS</p>
+    </div>
+
+    <div class="card" (click)="navigate('professores')">
+      <img src="assets/fa-solid_chalkboard-teacher.png" alt="Professores">
+      <br>
+      <p>PROFESSORES</p>
+    </div>
+
+    <div class="card" (click)="navigate('admin')">
+      <img src="assets/clarity_administrator-solid.png" alt="Admin">
+      <br>
+      <p>ADMIN</p>
+    </div>
+  </div>
+</div>
