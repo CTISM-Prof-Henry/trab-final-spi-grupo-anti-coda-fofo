@@ -4,7 +4,7 @@
 venv_docs
 venv
 .venv
-
+.idea
 # Excluir a pasta de build do MkDocs (gerada pelo 'mkdocs build')
 site/
 
