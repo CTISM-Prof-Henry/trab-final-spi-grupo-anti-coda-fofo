@@ -4,8 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.ufsm.politecnico.model.Sala;
-import com.ufsm.politecnico.model.TipoPredio;
-import com.ufsm.politecnico.model.TipoSala;
+import com.ufsm.politecnico.model.enums.TipoPredio;
+import com.ufsm.politecnico.model.enums.TipoSala;
 
 import java.util.List;
 

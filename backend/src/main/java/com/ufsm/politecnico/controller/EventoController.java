@@ -1,28 +1,18 @@
 package com.ufsm.politecnico.controller;
 
-import java.util.ArrayList;
-
-import org.springframework.http.ResponseEntity;
-import com.ufsm.politecnico.dto.EventoDTO;
-import com.ufsm.politecnico.service.EventoService;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
-@RequestMapping("/evento")
+@RequestMapping("/eventos")
 public class EventoController {
 
-    private EventoService eventoService;
-
-    public EventoController(EventoService eventoService){
-        this.eventoService = eventoService;
-    }
-
     @GetMapping
-    public ResponseEntity<ArrayList<EventoDTO>> findDTOs() {
-        ArrayList<EventoDTO> eventosDTOs = this.eventoService.finDtos();
-        return ResponseEntity.ok().body(eventosDTOs);
+    public String getMethodName(@RequestParam String param) {
+        return new String("Endpoint de acesso ao recurso Eventos");
     }
-        
+    
 }

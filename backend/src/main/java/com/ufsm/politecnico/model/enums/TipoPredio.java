@@ -1,4 +1,4 @@
-package com.ufsm.politecnico.model;
+package com.ufsm.politecnico.model.enums;
 
 public enum TipoPredio {
     A,

@@ -3,9 +3,8 @@ package com.ufsm.politecnico.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ufsm.politecnico.dto.EventoDTO;
 import com.ufsm.politecnico.model.Evento;
-import com.ufsm.politecnico.model.TipoEvento;
+import com.ufsm.politecnico.model.enums.TipoEvento;
 
 import java.util.ArrayList;
 import java.util.Optional;

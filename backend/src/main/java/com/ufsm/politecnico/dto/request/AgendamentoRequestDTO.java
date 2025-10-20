@@ -1,4 +1,4 @@
-package com.ufsm.politecnico.dto;
+package com.ufsm.politecnico.dto.request;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
