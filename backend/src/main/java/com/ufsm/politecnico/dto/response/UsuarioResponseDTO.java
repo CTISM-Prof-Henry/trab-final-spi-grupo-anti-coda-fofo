@@ -1,5 +1,7 @@
 package com.ufsm.politecnico.dto.response;
 
+import com.ufsm.politecnico.model.enums.Roles;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -16,5 +18,5 @@ public class UsuarioResponseDTO {
     @NonNull
     private String nome;
     @NonNull
-    private String permissao;
+    private Roles permissao;
 }

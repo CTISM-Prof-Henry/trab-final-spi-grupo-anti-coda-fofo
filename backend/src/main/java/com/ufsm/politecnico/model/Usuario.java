@@ -32,7 +32,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class Usuario implements UserDetails{
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -51,7 +50,6 @@ public class Usuario implements UserDetails{
     @Size(min = 6, message = "senha deve ter no mínimo 6 char")
     private String senha;
 
-    @NonNull
     @Enumerated(EnumType.STRING)
     private Roles permissao;
 
