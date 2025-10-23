@@ -31,6 +31,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(HttpMethod.GET, "/salas").permitAll()
                 .requestMatchers(HttpMethod.GET, "/eventos").permitAll()
+                .requestMatchers(HttpMethod.POST, "/eventos").hasRole("PROFESSOR")
+                .requestMatchers(HttpMethod.DELETE, "/eventos").hasAnyRole("ADM", "PROFESSOR")
                 .requestMatchers(HttpMethod.GET, "/agendamentos").permitAll()
                 .requestMatchers(HttpMethod.POST, "/usuario").hasRole("ADM")
                 .requestMatchers(HttpMethod.GET, "/usuario").hasAnyRole("ADM", "PROFESSOR")

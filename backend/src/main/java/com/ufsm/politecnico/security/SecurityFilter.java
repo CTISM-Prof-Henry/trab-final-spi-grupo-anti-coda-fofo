@@ -34,11 +34,19 @@ public class SecurityFilter extends OncePerRequestFilter {
 
         //caso tenha o token recuperar email e achar o usuario
         if(token != null){
-            String subject = tokenService.validaToken(token);
-            UserDetails usuario = autenticacaoService.loadUserByUsername(subject);
-            UsernamePasswordAuthenticationToken aut = 
+            try{
+                String subject = tokenService.validaToken(token);
+                //se for válido guarda no contexto
+                UserDetails usuario = autenticacaoService.loadUserByUsername(subject);
+                UsernamePasswordAuthenticationToken aut = 
                 new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(aut);
+                SecurityContextHolder.getContext().setAuthentication(aut);
+            }
+            catch(RuntimeException ex){
+                //token invalido limpa o contexto
+                SecurityContextHolder.clearContext();
+                System.out.println("Token inválido: " + ex.getMessage());
+            }
         }
         //caso não passe para o próximo filtro
         filterChain.doFilter(request, response);

@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class SalaController {
    
     @GetMapping
-    public String getMethodName(@RequestParam String param) {
+    public String listar(
+        @RequestParam(required = false) String param) {
         return new String("Endpoint para o recurso salas");
     }
     

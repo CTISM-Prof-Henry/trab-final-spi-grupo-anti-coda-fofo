@@ -13,4 +13,5 @@ public class EventoResponseDTO {
     private Long id;
     private String nome;
     private String tipo;
+    private String nomeProfessor;
 }
