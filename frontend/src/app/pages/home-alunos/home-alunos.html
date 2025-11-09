@@ -1,1 +1,89 @@
-<p>home-alunos works!</p>
+<div class="container">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h1 class="logo">POLISALAS</h1>
+
+    <ul class="menu">
+      <li class="active">🏠 Home</li>
+      <li>🚪 Salas Agendadas</li>
+    </ul>
+
+    <div class="exit" (click)="navigate('home')">Sair</div>
+  </aside>
+
+  <main class="content">
+    <h2>Salas Agendadas</h2>
+
+    <div class="sala-toggle">
+      <button class="sala-btn active">F109</button>
+      <button class="sala-btn">F209</button>
+      <button class="sala-btn">G309</button>
+      <button class="sala-btn">F206</button>
+      <button class="sala-btn">F209</button>
+    </div>
+    <div class="horarios-wrapper">
+      <table class="tabela-horarios">
+        <thead>
+        <tr>
+          <th>Horário</th>
+          <th>Segunda</th>
+          <th>Terça</th>
+          <th>Quarta</th>
+          <th>Quinta</th>
+          <th>Sexta</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>08:00</td>
+          <td class="agendado">Banco de Dados</td>
+          <td></td>
+          <td class="agendado">Redes</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>10:00</td>
+          <td></td>
+          <td></td>
+          <td class="agendado">POO</td>
+          <td></td>
+          <td class="agendado">Tópicos Especiais</td>
+        </tr>
+        <tr>
+          <td>12:00</td>
+          <td></td>
+          <td class="agendado">Sistemas Operacionais</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>14:00</td>
+          <td class="agendado">Engenharia de Software</td>
+          <td></td>
+          <td></td>
+          <td class="agendado">Banco de Dados II</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>16:00</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="agendado">Projeto Final</td>
+        </tr>
+        <tr>
+          <td>18:00</td>
+          <td></td>
+          <td class="agendado">UX e Design</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>

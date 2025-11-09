@@ -10,7 +10,7 @@
       <li (click)="setSection('config')" [class.active]="activeSection === 'config'">⚙️ Configurações</li>
     </ul>
 
-    <div class="exit">Sair</div>
+    <div class="exit" (click)="navigate('home')">Sair</div>
   </aside>
 
   <!-- Conteúdo -->

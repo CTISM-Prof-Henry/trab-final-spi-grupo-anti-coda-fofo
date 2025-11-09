@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-admin',
@@ -10,7 +11,11 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeAdmin {
   activeSection: string = 'home';
+  constructor(private router: Router) {}
 
+  navigate(path: string) {
+    this.router.navigate([path]);
+  }
   setSection(section: string) {
     this.activeSection = section;
   }

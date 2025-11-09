@@ -1,1 +1,96 @@
-<p>home-professores works!</p>
+<div class="container">
+  <aside class="sidebar">
+    <h1 class="logo">POLISALAS</h1>
+
+    <ul class="menu">
+      <li>🏠 Home</li>
+      <li class="active">📅 Agendar Sala</li>
+    </ul>
+
+    <div class="exit" (click)="navigate('home')">Sair</div>
+  </aside>
+
+  <main class="content">
+    <h2>Agendar Sala</h2>
+    <p class="subtitle">Preencha os campos abaixo para reservar uma sala.</p>
+
+    <form class="form-agendamento">
+      <div class="form-group">
+        <label for="professor">Nome do Professor</label>
+        <input type="text" id="professor" placeholder="Digite seu nome">
+      </div>
+
+      <div class="form-group">
+        <label for="sala">Sala</label>
+        <select id="sala">
+          <option value="">Selecione a sala</option>
+          <option>F209</option>
+          <option>F201</option>
+          <option>F310</option>
+          <option>G209</option>
+          <option>B12</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="dia">Dia da Semana</label>
+          <select id="dia">
+            <option value="">Selecione o dia</option>
+            <option>Segunda-feira</option>
+            <option>Terça-feira</option>
+            <option>Quarta-feira</option>
+            <option>Quinta-feira</option>
+            <option>Sexta-feira</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="inicio">Horário de Início</label>
+          <input type="time" id="inicio">
+        </div>
+
+        <div class="form-group">
+          <label for="fim">Horário de Término</label>
+          <input type="time" id="fim">
+        </div>
+      </div>
+
+      <button type="submit" class="btn-agendar">Agendar</button>
+    </form>
+
+    <div class="tabela-agendamentos">
+      <h3>📋 Agendamentos Recentes</h3>
+      <table>
+        <thead>
+        <tr>
+          <th>Professor</th>
+          <th>Sala</th>
+          <th>Dia</th>
+          <th>Horário</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Marcos</td>
+          <td>Lab Redes</td>
+          <td>Segunda</td>
+          <td>08:00 - 10:00</td>
+        </tr>
+        <tr>
+          <td>Elaine</td>
+          <td>Auditório</td>
+          <td>Terça</td>
+          <td>14:00 - 16:00</td>
+        </tr>
+        <tr>
+          <td>Diego</td>
+          <td>Lab Programação</td>
+          <td>Quinta</td>
+          <td>10:00 - 12:00</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
