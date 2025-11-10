@@ -1,9 +1,9 @@
-package com.ufsm.politecnico.dto;
+package com.ufsm.politecnico.dto.response;
 
 import java.time.LocalDateTime;
 
-import com.ufsm.politecnico.model.TipoPredio;
-import com.ufsm.politecnico.model.TipoSala;
+import com.ufsm.politecnico.model.enums.TipoPredio;
+import com.ufsm.politecnico.model.enums.TipoSala;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,18 +12,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AgendamentoDTO {
+public class AgendamentoResponseDTO {
     private Long id;
     private LocalDateTime dataHoraInicio;
     private LocalDateTime dataHoraFim;
     private String nomeSala;
     private String nomeEvento;
-    private String nomeProfessor;
     private TipoSala tipoSala;
     private TipoPredio tipoPredio;
 
     //construtor explicito para evitar erro 
-    public AgendamentoDTO(Long id, LocalDateTime dataHoraInicio,
+    public AgendamentoResponseDTO(Long id, LocalDateTime dataHoraInicio,
             LocalDateTime dataHoraFim, String nomeSala,
             String nomeEvento, String nomeProfessor,
             TipoSala tipoSala, TipoPredio tipoPredio){
@@ -32,7 +31,6 @@ public class AgendamentoDTO {
         this.dataHoraFim = dataHoraFim;
         this.nomeSala = nomeSala;
         this.nomeEvento = nomeEvento;
-        this.nomeProfessor = nomeProfessor;
         this.tipoSala = tipoSala;
         this.tipoPredio = tipoPredio;
     }

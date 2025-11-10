@@ -1,30 +1,24 @@
-CREATE TABLE IF NOT EXISTS admin(
-    uuid UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    email VARCHAR(100) UNIQUE NOT NULL,
-    senha VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS professor(
+CREATE TABLE IF NOT EXISTS usuario(
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
     nome VARCHAR(100) NOT NULL,
-    matricula VARCHAR(9) UNIQUE NOT NULL
+    matricula VARCHAR(15),
+    permissao VARCHAR(20) CHECK(permissao IN(
+        'ROLE_ADM', 'ROLE_PROFESSOR'
+    ))
 );
-
---tabela evento possui uma restrição check para validar o tipo de valor aceitavel para evento
 
 CREATE TABLE IF NOT EXISTS evento(
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(100) NOT NULL,
-    id_professor BIGINT NOT NULL REFERENCES 
-		professor(id) ON DELETE CASCADE,
+    id_usuario BIGINT NOT NULL REFERENCES 
+		usuario(id) ON DELETE CASCADE,
     tipo VARCHAR(30) NOT NULL CHECK (tipo IN(
         'DISCIPLINA', 'PALESTRA', 'SEMINÁRIO', 'REUNIÃO', 'PROJETO'
     ))
 );
 
---tabela sala possui uma restrição check para validar o tipo de valor aceitável para sala
 CREATE TABLE IF NOT EXISTS sala(
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(5) NOT NULL,
@@ -53,3 +47,5 @@ CREATE TABLE IF NOT EXISTS agendamento(
 -- O GIST agora usa a função tsrange, compatível com colunas TIMESTAMP
 CREATE INDEX idx_periodo ON agendamento USING gist (tsrange(data_hora_inicio, data_hora_fim));
 
+-- Criar um índice para facilitar busca por matricula
+CREATE INDEX idx_matricula ON usuario(matricula);

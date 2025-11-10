@@ -1,4 +1,6 @@
-package com.ufsm.politecnico.dto;
+package com.ufsm.politecnico.dto.request;
+
+import com.ufsm.politecnico.model.enums.TipoEvento;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,10 +11,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SalaDTO {
+public class EventoRequestDTO {
     private String nome;
-    private String tipoSala;
-    private String tipoPredio;
-    private int capacidade;
-    private Long id;
+    private Long id_professor;
+    private TipoEvento tipo;
 }

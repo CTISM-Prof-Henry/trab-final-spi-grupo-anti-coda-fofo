@@ -4,6 +4,13 @@ import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-home-alunos',
+import {NgIf} from "@angular/common";
+
+@Component({
+  selector: 'app-home-alunos',
+    imports: [
+        NgIf
+    ],
   templateUrl: './home-alunos.html',
   styleUrl: './home-alunos.css',
   imports: [CommonModule,]
@@ -13,6 +20,11 @@ export class HomeAlunos {
   constructor(private router: Router) {}
   dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
   horarios = ['08:00 - 10:00', '10:00 - 12:00', '13:30 - 15:30', '15:30 - 17:30'];
+  activeSection: string = 'home';
+
+  setSection(section: string) {
+    this.activeSection = section;
+  }
 
   salas: any[] = [
     { dia: 'Segunda', hora: '08:00 - 10:00', agendada: true, sala: 'Lab 1', professor: 'Prof. Ricardo' },

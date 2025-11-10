@@ -1,4 +1,4 @@
-package com.ufsm.politecnico.dto;
+package com.ufsm.politecnico.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventoDTO {
+public class EventoResponseDTO {
     private Long id;
     private String nome;
     private String tipo;
-    private String professorNome;
+    private String nomeProfessor;
 }

@@ -1,5 +1,7 @@
 package com.ufsm.politecnico.model;
 
+import com.ufsm.politecnico.model.enums.TipoEvento;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -17,14 +19,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//lombok
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of="id")
 
-//jpa
 @Entity
 @Table(name = "evento")
 public class Evento {
@@ -36,12 +36,9 @@ public class Evento {
     @Size(min=3, max=100)
     private String nome;
 
-    // Relacionamento ManyToOne com Professor, carregamento preguiçoso
-    //então as entidades relacionadas não irão carregar automaticamente
-    //somente quando uma consulta especifica elas
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_professor", nullable = false)
-    private Professor professor;
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private Usuario usuario;
 
     @Enumerated(EnumType.STRING)
     private TipoEvento tipo;
