@@ -15,6 +15,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -48,4 +50,14 @@ public class SchedulingController {
         return listSchedulingService.listAll(PageRequest.of(page, size));
     }
     
+    @Operation(summary = "Listar Agendamentos", description = "listar todos os agendamentos em um intervalo de tempo")
+    @GetMapping("/periodo")
+    public Page<SchedulingResponse> listarPorPeriodo(
+            @RequestParam(defaultValue = "2025-01-01T00:00:00") LocalDateTime inicio,
+            @RequestParam(defaultValue = "2025-12-30T23:00:00") LocalDateTime fim,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+
+        return listSchedulingService.listByPeriod(inicio, fim, PageRequest.of(page, size));
+    }
 }
