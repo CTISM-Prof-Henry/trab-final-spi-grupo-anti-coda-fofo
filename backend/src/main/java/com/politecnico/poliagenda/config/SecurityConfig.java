@@ -34,7 +34,8 @@ public class SecurityConfig {
     private static final String[] PUBLIC_GET_WHITELIST = {
             "/health/**",
             "/events/**",
-            "/rooms/**"
+            "/rooms/**",
+            "/scheduling/**"
     };
 
     private static final String[] SWAGGER_WHITELIST = {
@@ -61,6 +62,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/users/").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/events/").hasRole("PROFESSOR")
                 .requestMatchers(HttpMethod.DELETE, "/events/").hasRole("PROFESSOR")
+                .requestMatchers(HttpMethod.POST, "/scheduling/").hasRole("PROFESSOR")
                 .anyRequest().authenticated()
             )
             .csrf(csrf -> csrf.disable())
