@@ -4,7 +4,6 @@ nav:
   - Home: index.md
   - Instalação: instalacao.md
   - API: api.md
-  - Desenvolvimento: desenvolvimento.md
   - Banco de Dados: banco-dados.md
   - Frontend: frontend.md
   - Exemplos: exemplos.md
