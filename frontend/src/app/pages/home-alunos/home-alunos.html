@@ -1,17 +1,11 @@
 <div class="container">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h1 class="logo">POLISALAS</h1>
 
-    <ul class="menu">
-      <li class="active">🏠 Home</li>
-      <li>🚪 Salas Agendadas</li>
-    </ul>
+  <app-sidebar-public class="sidebar" [(activeSection)]="activeSection" (activeSectionChange)="setSection($event)"></app-sidebar-public>
 
-    <div class="exit" (click)="navigate('home')">Sair</div>
-  </aside>
 
   <main class="content">
+
+
     <h2>Salas Agendadas</h2>
 
     <div class="sala-toggle">

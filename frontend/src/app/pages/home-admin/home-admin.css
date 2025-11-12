@@ -11,15 +11,7 @@
 }
 
 /* Sidebar */
-.sidebar {
-  width: 240px;
-  background-color: #004b8d;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-}
+
 
 .logo {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -87,3 +79,4 @@
 .card:hover {
   transform: translateY(-4px);
 }
+

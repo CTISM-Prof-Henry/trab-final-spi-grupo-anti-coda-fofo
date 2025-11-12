@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import { SidebarPublic } from './components/sidebar-public/sidebar-public';
 
 @Component({
   selector: 'app-home-alunos',
   templateUrl: './home-alunos.html',
   styleUrl: './home-alunos.css',
-  imports: [CommonModule,]
+  imports: [CommonModule, SidebarPublic]
 })
 export class HomeAlunos {
   activeSection = 'home';

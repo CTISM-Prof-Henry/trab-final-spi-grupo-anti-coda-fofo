@@ -1,1 +1,13 @@
-<p>sidebar works!</p>
+<div class="hamburger" (click)="toggleSidebar()">☰</div>
+
+<aside class="sidebar" [class.active]="isSidebarOpen">
+  <h1 class="logo">POLISALAS</h1>
+
+  <ul class="menu">
+    <li (click)="setSection('home')" [class.active]="activeSection === 'home'">Home</li>
+    <li (click)="setSection('usuarios')" [class.active]="activeSection === 'usuarios'">Usuários</li>
+    <li (click)="setSection('salas')" [class.active]="activeSection === 'salas'">Salas</li>
+  </ul>
+
+  <div class="exit" (click)="navigate('home')">Sair</div>
+</aside>
