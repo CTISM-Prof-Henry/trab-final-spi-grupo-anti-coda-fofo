@@ -8,9 +8,10 @@ O sistema utiliza PostgreSQL como banco de dados principal, com migrações gere
 
 ### Diagrama ER
 
-![alt text](imgs/BANCO.png)
+![alt text](imgs/banco.png)
 
-
+### Casos de uso
+![alt text](imgs/poliAgenda.drawio.png)
 
 ## Migrações
 
@@ -19,17 +20,6 @@ O sistema utiliza PostgreSQL como banco de dados principal, com migrações gere
 Criação inicial das tabelas com:
 - Tabelas principais (admin, professor, evento, sala, agendamento)
 - Constraints de validação
-
-### V2__script_dados_inicializacao.sql
-
-Dados iniciais para desenvolvimento e testes:
-- 1 administrador padrão
-- 5 professores de exemplo
-- 14 salas distribuídas pelos prédios
-- 18 eventos diversos
-- 5 agendamentos de exemplo
-
-
 
 ### Criptografia
 
