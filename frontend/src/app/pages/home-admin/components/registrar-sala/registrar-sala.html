@@ -1,0 +1,60 @@
+<div class="login-container">
+  <div class="login-card">
+
+    <div class="login-panel-left">
+      <div class="panel-header">
+        <h2>REGISTRE UMA SALA</h2>
+        <p>Informe os dados da sala abaixo</p>
+      </div>
+
+      <div class="logo-container">
+        <div class="logo">POLISALAS</div>
+        <div class="logo-subtitle">
+          SISTEMA DE AGENDAMENTO DE SALAS DO COLÉGIO POLITÉCNICO
+        </div>
+      </div>
+    </div>
+
+    <div class="login-panel-right">
+      <form [formGroup]="formSala" (ngSubmit)="onSubmit()">
+
+        <!-- Nome da Sala -->
+        <mat-form-field class="input-group" appearance="outline">
+          <mat-label>Nome da Sala</mat-label>
+          <input matInput type="text" formControlName="name" placeholder="Ex: G201">
+        </mat-form-field>
+
+        <!-- Tipo de Sala -->
+        <mat-form-field class="input-group" appearance="outline">
+          <mat-label>Tipo de Sala</mat-label>
+          <mat-select formControlName="roomType">
+            <mat-option value="LABORATÓRIO">Laboratório</mat-option>
+            <mat-option value="AULA">Sala de Aula</mat-option>
+            <mat-option value="AUDITÓRIO">Auditório</mat-option>
+            <mat-option value="OFICINA">Oficina</mat-option>
+            <mat-option value="MULTIUSO">Multiuso</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Centro -->
+        <mat-form-field class="input-group" appearance="outline">
+          <mat-label>Centro</mat-label>
+          <mat-select formControlName="center">
+            <mat-option *ngFor="let c of centers" [value]="c">{{ c }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Capacidade -->
+        <mat-form-field class="input-group" appearance="outline">
+          <mat-label>Capacidade</mat-label>
+          <input matInput type="number" formControlName="capacity" placeholder="Ex: 40">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="formSala.invalid">
+          Registrar Sala
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

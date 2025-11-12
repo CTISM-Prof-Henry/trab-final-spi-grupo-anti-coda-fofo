@@ -1,0 +1,113 @@
+/* Sidebar padrão (desktop) */
+.sidebar {
+  width: 240px;
+  background-color: #004b8d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  text-align: center;
+  padding: 1em;
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+/* Logo e menu já existentes */
+.logo {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding-bottom: 10rem;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu li:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.menu li.active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.exit {
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+}
+
+/* Responsividade */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .logo {
+    font-size: 22px;
+    padding-bottom: 8rem;
+  }
+
+  .menu li {
+    padding: 10px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -250px; /* esconde fora da tela */
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    left: 0; /* mostra a sidebar */
+  }
+
+  /* Reduz o padding e tamanho da logo */
+  .logo {
+    font-size: 20px;
+    padding-bottom: 6rem;
+  }
+
+  .menu li {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* Botão para abrir/fechar sidebar (hamburger) */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: #004b8d;
+  z-index: 1100;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}

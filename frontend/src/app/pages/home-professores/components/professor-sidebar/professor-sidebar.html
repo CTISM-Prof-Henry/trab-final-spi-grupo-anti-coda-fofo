@@ -1,0 +1,12 @@
+<div class="hamburger" (click)="toggleSidebar()">☰</div>
+
+<aside class="sidebar" [class.active]="isSidebarOpen">
+  <h1 class="logo">POLISALAS</h1>
+
+  <ul class="menu">
+    <li (click)="setSection('home')" [class.active]="activeSection === 'home'">Home</li>
+    <li (click)="setSection('usuarios')" [class.active]="activeSection === 'agendar'">Agendar sala</li>
+  </ul>
+
+  <div class="exit" (click)="navigate('home')">Sair</div>
+</aside>

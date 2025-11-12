@@ -1,0 +1,36 @@
+<div class="login-container">
+  <div class="login-card">
+
+    <div class="login-panel-left">
+      <div class="panel-header">
+        <h2>BEM VINDO!</h2>
+        <p>Acesse sua conta agora!</p>
+      </div>
+
+      <div class="logo-container">
+        <div class="logo">POLISALAS</div>
+        <div class="logo-subtitle">
+          SISTEMA DE AGENDAMENTO DE SALAS DO COLÉGIO POLITÉCNICO
+        </div>
+      </div>
+    </div>
+
+    <div class="login-panel-right">
+      <h3>FAÇA LOGIN EM SUA CONTA</h3>
+      <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field class="input-group">
+          <mat-label>Matricula</mat-label>
+          <i class="fa-solid fa-user icon"></i>
+          <input matInput type="email" autocomplete="email" formControlName="email" placeholder="Matrícula">
+        </mat-form-field>
+        <mat-form-field class="input-group">
+          <mat-label>Senha</mat-label>
+          <input matInput autocomplete="current-password" type="password" formControlName="password" placeholder="SENHA">
+        </mat-form-field>
+        <button mat-raised-button type="submit" class="login-button">
+          <span>Entrar</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

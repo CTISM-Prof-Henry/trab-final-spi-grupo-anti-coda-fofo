@@ -1,0 +1,47 @@
+<div class="login-container">
+  <div class="login-card">
+
+    <div class="login-panel-left">
+      <div class="panel-header">
+        <h2>BEM VINDO!</h2>
+        <p>Crie sua conta agora!</p>
+      </div>
+
+      <div class="logo-container">
+        <div class="logo">POLISALAS</div>
+        <div class="logo-subtitle">
+          SISTEMA DE AGENDAMENTO DE SALAS DO COLÉGIO POLITÉCNICO
+        </div>
+      </div>
+    </div>
+
+    <div class="login-panel-right">
+      <h3>REGISTRE SUA CONTA</h3>
+
+      <form class="login-form" [formGroup]="formReg" (ngSubmit)="onSubmit()">
+
+        <!-- Matrícula -->
+        <mat-form-field class="input-group" appearance="outline">
+          <mat-label>Matrícula</mat-label>
+          <input matInput type="text" formControlName="register" placeholder="Matrícula">
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field class="input-group" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="Email">
+        </mat-form-field>
+
+        <!-- Senha -->
+        <mat-form-field class="input-group" appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input matInput type="password" formControlName="password" placeholder="Senha">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" class="login-button" [disabled]="formReg.invalid"> Registrar
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

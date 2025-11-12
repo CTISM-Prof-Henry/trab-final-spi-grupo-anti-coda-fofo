@@ -1,0 +1,61 @@
+/* Container principal - agora parece um "card" */
+.usuarios-container {
+  padding: 24px;
+  max-width: 900px;
+  margin: 2rem auto; /* Adiciona margem no topo/base */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Título da página */
+.usuarios-container h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* A tabela em si (herda a sombra do .mat-elevation-z8) */
+table.mat-table {
+  width: 100%;
+  border-radius: 8px; /* Arredonda os cantos */
+  overflow: hidden; /* Garante que o conteúdo respeite o border-radius */
+}
+
+/* Células do Cabeçalho (th) */
+th.mat-header-cell {
+  background-color: #f4f6f8; /* Um cinza bem claro */
+  color: #555;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase; /* DEIXA AS LETRAS MAIÚSCULAS */
+  padding: 16px;
+  text-align: left;
+}
+
+/* Células de dados (td) */
+td.mat-cell {
+  padding: 16px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0; /* Linha separadora sutil */
+}
+
+/* Linhas da tabela (tr) */
+tr.mat-row:hover {
+  background-color: #fafafa; /* Efeito ao passar o mouse */
+}
+
+/* Remove a borda da última linha para um visual mais limpo */
+tr.mat-row:last-child td.mat-cell {
+  border-bottom: none;
+}
+
+/* Mensagem de "Nenhum usuário" */
+.empty-msg {
+  text-align: center;
+  margin-top: 2rem;
+  color: #888;
+  font-size: 1rem;
+  font-style: italic;
+}
