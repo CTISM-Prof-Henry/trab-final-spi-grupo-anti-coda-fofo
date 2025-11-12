@@ -1,14 +1,17 @@
 package com.politecnico.poliagenda.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.politecnico.poliagenda.controller.request.EventRequest;
 import com.politecnico.poliagenda.controller.response.EventResponse;
 import com.politecnico.poliagenda.service.event.CreateEventService;
 import com.politecnico.poliagenda.service.event.ListEventService;
+import com.politecnico.poliagenda.service.event.RemoveEventService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -17,6 +20,7 @@ import lombok.AllArgsConstructor;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,17 +33,29 @@ public class EventController {
 
     private final CreateEventService createEventService;
     private final ListEventService listEventService;
+    private final RemoveEventService removeEventService;
 
     @Operation(summary = "Evento", description = "Listagem de eventos dos professores mediante filtros")
-    @GetMapping("/list")
+    @GetMapping("/")
     public ResponseEntity<List<EventResponse>> list() {
         return ResponseEntity.ok().body(listEventService.listAll());
     }
 
     @Operation(summary = "Criar novo evento", description = "Cria um evento e associa com o usuario autenticado")
     @SecurityRequirement(name = "jwt_auth")
-    @PostMapping("/post")
+    @PostMapping("/")
     public ResponseEntity<EventResponse> post(@RequestBody @Valid EventRequest dto) {
         return ResponseEntity.ok().body(createEventService.create(dto));
-    }    
+    }   
+    
+    @DeleteMapping("/")
+    @Operation(summary = "Deletar Evento", description = "Deletar evento por id")
+    @SecurityRequirement(name = "jwt_auth")
+    public ResponseEntity<?> delete(
+        @Parameter(description = "id do evento", example = "1")
+        @RequestParam Long id
+    ){
+        removeEventService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }

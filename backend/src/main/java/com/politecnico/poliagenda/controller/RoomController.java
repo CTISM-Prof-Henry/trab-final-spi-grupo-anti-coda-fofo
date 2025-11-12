@@ -1,14 +1,17 @@
 package com.politecnico.poliagenda.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.politecnico.poliagenda.controller.request.RoomRequest;
 import com.politecnico.poliagenda.controller.response.RoomResponse;
 import com.politecnico.poliagenda.service.room.CreateRoomService;
 import com.politecnico.poliagenda.service.room.ListRoomService;
+import com.politecnico.poliagenda.service.room.RemoveRoomService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -30,6 +33,7 @@ public class RoomController {
 
     private final CreateRoomService createRoomService;
     private final ListRoomService listRoomService;
+    private final RemoveRoomService removeRoomService;
 
     @Operation(summary = "Listar Salas", description = "Ver informações de salas com filtros")
     @GetMapping("/")
@@ -45,8 +49,14 @@ public class RoomController {
     }
 
     @DeleteMapping("/")
-    public void delete(){
-        
+    @Operation(summary = "Deletar Sala", description = "Deletar sala por id")
+    @SecurityRequirement(name = "jwt_auth")
+    public ResponseEntity<?> delete(
+        @Parameter(description = "id da sala", example = "1")
+        @RequestParam Long id
+    ){
+        removeRoomService.delete(id);
+        return ResponseEntity.noContent().build();
     }
     
 }
