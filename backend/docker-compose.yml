@@ -1,35 +1,29 @@
 services:
-  dbAgenda:
+  pg:
     image: postgres:17
-    container_name: dbAgenda
+    container_name: agenda-pg
     ports:
-      - "5010:5432"
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
-      POSTGRES_DB: agenda
+      POSTGRES_DB: agenda_pg
     networks:
-      - agenda_poli
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "agenda"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-      start_period: 10s
+      - agendapoli
 
-  adminAgenda:
-    image: dpage/pgadmin4:8
-    container_name: adminAgenda
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: agenda-pgadmin
     ports: 
       - "5050:80"
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: admin1234
+      PGADMIN_DEFAULT_EMAIL: admin@local.com
+      PGADMIN_DEFAULT_PASSWORD: admin
     depends_on:
-      - dbAgenda
+      - pg
     networks:
-      - agenda_poli
+      - agendapoli
 
 networks:
-  agenda_poli:
+  agendapoli:
     driver: bridge

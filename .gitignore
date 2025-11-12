@@ -1,11 +1,13 @@
-.vscode
+.vscode/
+.idea/
 
-# Excluir Ambiente Virtual (VENV)
 venv_docs
 venv
 .venv
 
-# Excluir a pasta de build do MkDocs (gerada pelo 'mkdocs build')
 site/
 
-# Adicione outras exclusões de projeto aqui (ex: target/, node_modules/)
+target/
+node_modules/
+
+.env
